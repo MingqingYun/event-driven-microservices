@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @ConfigurationProperties(prefix="kafka-config")
 public class KafkaConfigData {
-    private String bootstrapService;
+    private String bootstrapServers;
     private String schemaRegistryUrlKey;
     private String schemaRegistryUrl;
     private String topicName;
