@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/MingqingYun/spring-cloud-config-server-repository.git
           username: MingqingYun
-          password: '(cipher)574951f3a777ad210ef0114563467e046d15bca1efcbd9ec08bf41ca467b7f7615e1763d59a42cf53f04278b784412cc61e4b1a0136d472eaaa226e0b6cd3829'
+          password: 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
           clone-on-start: true
     fail-fast: true
 
