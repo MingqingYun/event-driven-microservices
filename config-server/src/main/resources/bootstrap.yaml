@@ -1,13 +1,13 @@
 spring:
   application:
-    name: configserver
+    name: config-server
   cloud:
     config:
       server:
         git:
           uri: https://github.com/MingqingYun/spring-cloud-config-server-repository.git
           username: MingqingYun
-          password: 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
+          password: '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'
           clone-on-start: true
     fail-fast: true
 
