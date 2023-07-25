@@ -22,6 +22,12 @@
 		<module>kafka/kafka-producer</module>
 		<module>common-config</module>
 		<module>config-server</module>
+        <module>kafka/kafka-consumer</module>
+        <module>kafka-to-elastic-service</module>
+        <module>elastic</module>
+		<module>elastic/elastic-model</module>
+		<module>elastic/elastic-index-client</module>
+		<module>elastic/elastic-config</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -39,6 +45,7 @@
 		<json.version>20220320</json.version>
 		<spring-cloud.version>2.2.6.RELEASE</spring-cloud.version>
 		<spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
+		<elastic-search.version>7.9.1</elastic-search.version>
 
 	</properties>
 
@@ -80,6 +87,14 @@
 				<artifactId>spring-boot-starter-webflux</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+
 
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
 			<dependency>
@@ -146,6 +161,19 @@
 				<artifactId>kafka-producer</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.microservices.demo</groupId>
+				<artifactId>kafka-consumer</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.microservices.demo</groupId>
+				<artifactId>elastic-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<!--	Other dependencies-->
 
 			<!-- https://mvnrepository.com/artifact/org.twitter4j/twitter4j-stream -->
@@ -180,6 +208,22 @@
 				<artifactId>avro</artifactId>
 				<version>${avro.version}</version>
 			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+			<dependency>
+				<groupId>org.elasticsearch</groupId>
+				<artifactId>elasticsearch</artifactId>
+				<version>${elasticsearch.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>elasticsearch-rest-high-level-client</artifactId>
+				<version>${elasticsearch.version}</version>
+			</dependency>
+
+
 
 			<!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
 			<dependency>
