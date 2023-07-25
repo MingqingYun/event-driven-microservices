@@ -37,7 +37,6 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
                 )).setRequestConfigCallback(
                         requestConfigBuilder -> requestConfigBuilder.setConnectTimeout(elasticConfigData.getConnectTimeoutMs())
                                 .setSocketTimeout(elasticConfigData.getSocketTimeoutMs()))
-
         );
     }
     @Bean

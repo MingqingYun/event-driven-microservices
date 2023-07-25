@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-
 public class ElasticIndexUtil<T extends IndexModel> {
 
     public List<IndexQuery> getIndexQueries(List<T> documents){
