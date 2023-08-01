@@ -14,30 +14,34 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
-public class ElasticQueryServiceResponseModelAssembler extends RepresentationModelAssemblerSupport<TwitterIndexModel, ElasticQueryServiceResponseModel> {
+public class ElasticQueryServiceResponseModelAssembler
+        extends RepresentationModelAssemblerSupport<TwitterIndexModel, ElasticQueryServiceResponseModel> {
 
     private final ElasticToResponseModelTransformer elasticToResponseModelTransformer;
 
-    public ElasticQueryServiceResponseModelAssembler(ElasticToResponseModelTransformer elasticToResponseModelTransformer) {
+    public ElasticQueryServiceResponseModelAssembler(ElasticToResponseModelTransformer transformer) {
         super(ElasticDocumentController.class, ElasticQueryServiceResponseModel.class);
-        this.elasticToResponseModelTransformer = elasticToResponseModelTransformer;
+        this.elasticToResponseModelTransformer = transformer;
     }
 
     @Override
-    public ElasticQueryServiceResponseModel toModel(TwitterIndexModel entity) {
-        ElasticQueryServiceResponseModel responseModel = elasticToResponseModelTransformer.getResponseModel(entity);
+    public ElasticQueryServiceResponseModel toModel(TwitterIndexModel twitterIndexModel) {
+        ElasticQueryServiceResponseModel responseModel =
+                elasticToResponseModelTransformer.getResponseModel(twitterIndexModel);
         responseModel.add(
                 linkTo(methodOn(ElasticDocumentController.class)
-                        .getDocumentById((entity.getId())))
-                .withSelfRel());
-
+                        .getDocumentById((twitterIndexModel.getId())))
+                        .withSelfRel());
         responseModel.add(
-                linkTo(ElasticDocumentController.class).withRel("documents")
-        );
+                linkTo(ElasticDocumentController.class)
+                        .withRel("documents"));
         return responseModel;
     }
 
-    public List<ElasticQueryServiceResponseModel> toModels(List<TwitterIndexModel> entities){
-        return entities.stream().map(this::toModel).collect(Collectors.toList());
+    public List<ElasticQueryServiceResponseModel> toModels(List<TwitterIndexModel> twitterIndexModels) {
+        return twitterIndexModels.stream().map(this::toModel).collect(Collectors.toList());
     }
+
+
 }
+

@@ -8,6 +8,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "elastic-query-config")
 public class ElasticQueryConfigData {
-
     private String textField;
 }

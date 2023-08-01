@@ -9,18 +9,18 @@ import java.util.stream.Collectors;
 
 @Component
 public class ElasticToResponseModelTransformer {
+
     public ElasticQueryServiceResponseModel getResponseModel(TwitterIndexModel twitterIndexModel) {
-        return ElasticQueryServiceResponseModel.builder()
+        return ElasticQueryServiceResponseModel
+                .builder()
                 .id(twitterIndexModel.getId())
+                .userId(twitterIndexModel.getUserId())
                 .text(twitterIndexModel.getText())
                 .createdAt(twitterIndexModel.getCreatedAt())
-                .userId(twitterIndexModel.getUserId())
                 .build();
+    }
 
-    };
-
-    public List<ElasticQueryServiceResponseModel> getResponseModels(List<TwitterIndexModel> twitterIndexModels){
-         return twitterIndexModels.stream().map(this::getResponseModel).collect(Collectors.toList());
-
+    public List<ElasticQueryServiceResponseModel> getResponseModels(List<TwitterIndexModel> twitterIndexModels) {
+        return twitterIndexModels.stream().map(this::getResponseModel).collect(Collectors.toList());
     }
 }

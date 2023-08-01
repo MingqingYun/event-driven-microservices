@@ -5,8 +5,10 @@ import com.microservices.demo.elastic.query.service.model.ElasticQueryServiceRes
 import java.util.List;
 
 public interface ElasticQueryService {
+
     ElasticQueryServiceResponseModel getDocumentById(String id);
+
     List<ElasticQueryServiceResponseModel> getDocumentByText(String text);
 
-    List<ElasticQueryServiceResponseModel> getAllDocument();
+    List<ElasticQueryServiceResponseModel> getAllDocuments();
 }
