@@ -80,7 +80,7 @@ services:
       - "./docker-logs:/workspace/elastic-query-service/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
     user: root
-    entrypoint: [ "check-config-server-started.sh" ]
+    entrypoint: [ "check-config-server-started.sh", "check-keycloak-server-started.sh"]
     depends_on:
       - config-server
       - kafka-to-elastic-service
@@ -108,7 +108,7 @@ services:
       - "./docker-logs:/workspace/elastic-query-service/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
     user: root
-    entrypoint: [ "check-config-server-started.sh" ]
+    entrypoint: [ "check-config-server-started.sh" , "check-keycloak-server-started.sh"]
     depends_on:
       - config-server
       - elastic-1
@@ -135,7 +135,7 @@ services:
       - "./docker-logs:/workspace/elastic-query-web-client/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
     user: root
-    entrypoint: [ "check-config-server-started.sh" ]
+    entrypoint: [ "check-config-server-started.sh", "check-keycloak-server-started.sh"]
     depends_on:
       - config-server
     environment:
