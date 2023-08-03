@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: kafka-streams-service
+  profiles:
+    active: kafka_streams
+  cloud:
+    config:
+      name: kafka-streams-service,config-client
+      uri: http://localhost:8888
+      username: spring_cloud_user
+      password: '(cipher)282926a6bcb573898d726f5249407165b0e9c5f6ed1d0a81fac8c2cfade9fdf23736cdc7af307a38339cf56b50e55ae7'
+
+encrypt:
+  key: ${JASYPT_ENCRYPTOR_PASSWORD}
