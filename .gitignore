@@ -39,3 +39,8 @@ elastic-query-service/elastic-query-service/logs
 config-server/logs/
 elastic-query-service/logs/
 elastic-query-web-client-2/logs
+config-server/src/main/resources/bootstrap.yaml
+analytics-service/logs
+elastic-query-web-client/logs
+kafka-streams-service/logs
+

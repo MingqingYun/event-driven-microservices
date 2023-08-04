@@ -4,5 +4,4 @@
     <property name="APP_NAME" value="kafka-to-elastic-service"/>
 
     <include resource="logback-common.xml"/>
-
 </configuration>

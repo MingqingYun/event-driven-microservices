@@ -8,4 +8,4 @@ spring:
       name: analytics-service,config-client
       uri: http://localhost:8888
       username: spring_cloud_user
-      password: '{cipher}2ca52e09ec85aa620abce2e704242985bf786c9a684461b023a563b34b96c527ec81160eae48d731017c98ee0b9e1824'
+      password: '(cipher)282926a6bcb573898d726f5249407165b0e9c5f6ed1d0a81fac8c2cfade9fdf23736cdc7af307a38339cf56b50e55ae7'
